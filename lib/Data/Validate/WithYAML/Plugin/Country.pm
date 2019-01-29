@@ -8,7 +8,7 @@ use warnings;
 use Carp;
 use Locale::Country::Multilingual;
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 sub check {
     my ($class, $value, $conf) = @_;

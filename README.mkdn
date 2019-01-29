@@ -8,7 +8,7 @@ Data::Validate::WithYAML::Plugin::Country - check whether a given value is a val
 
 # VERSION
 
-version 0.02
+version 0.03
 
 # SYNOPSIS
 
