@@ -80,4 +80,8 @@ the three-letter code (e.g. DEU, FRA).
 
 And it supports different languages so you use the country codes in your preferred language (see C<Locale::Country::Multilingual>).
 
+=head1 METHODS
+
+=head2 check
+
 =cut
