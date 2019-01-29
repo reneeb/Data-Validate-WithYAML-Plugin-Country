@@ -1,0 +1,104 @@
+[![Build Status](https://travis-ci.org/reneeb/Data-Validate-WithYAML-Plugin-Country.svg?branch=master)](https://travis-ci.org/reneeb/Data-Validate-WithYAML-Plugin-Country)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/Data-Validate-WithYAML-Plugin-Country.png)](http://cpants.charsbar.org/dist/overview/Data-Validate-WithYAML-Plugin-Country)
+[![GitHub issues](https://img.shields.io/github/issues/reneeb/Data-Validate-WithYAML-Plugin-Country.svg)](https://github.com/reneeb/Data-Validate-WithYAML-Plugin-Country/issues)
+
+# NAME
+
+Data::Validate::WithYAML::Plugin::Country - check whether a given value is a valid country code
+
+# VERSION
+
+version 0.02
+
+# SYNOPSIS
+
+Your `test.pl`:
+
+    use Data::Validate::WithYAML;
+    
+    my $validator = Data::Validate::WithYAML->new( 'validate.yml' );
+    my %params    = (
+        country => 'DE',
+        # more user input
+    );
+    my %errors = $validator->validate( \%params );
+
+Your `validate.yml`:
+
+    ---
+    country:
+      type: required
+      plugin: Country
+      format: alpha-2
+      lang: en
+
+Currently this module supports to formats: _alpha-2_ that are two-letter country codes like 'DE', 'FR', etc. and _alpha-3_ that is
+the three-letter code (e.g. DEU, FRA).
+
+And it supports different languages so you use the country codes in your preferred language (see `Locale::Country::Multilingual`).
+
+# DESCRIPTION
+
+Check if the given value is a valid country code.
+
+# METHODS
+
+## check
+
+
+
+# Development
+
+The distribution is contained in a Git repository, so simply clone the
+repository
+
+```
+$ git clone git://github.com/reneeb/Data-Validate-WithYAML-Plugin-Country.git
+```
+
+and change into the newly-created directory.
+
+```
+$ cd Data-Validate-WithYAML-Plugin-Country
+```
+
+The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to
+build the distribution, hence this will need to be installed before
+continuing:
+
+```
+$ cpanm Dist::Zilla
+```
+
+To install the required prequisite packages, run the following set of
+commands:
+
+```
+$ dzil authordeps --missing | cpanm
+$ dzil listdeps --author --missing | cpanm
+```
+
+The distribution can be tested like so:
+
+```
+$ dzil test
+```
+
+To run the full set of tests (including author and release-process tests),
+add the `--author` and `--release` options:
+
+```
+$ dzil test --author --release
+```
+
+# AUTHOR
+
+Renee Baecker <reneeb@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2012 by Renee Baecker.
+
+This is free software, licensed under:
+
+    The Artistic License 2.0 (GPL Compatible)
